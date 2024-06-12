@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendation Widget</title>
+</head>
+<body>
+    <h1>Book Recommendation Widget</h1>
+    
+    <form action="#" method="get" onsubmit="return loadBooks()">
+        <label for="search_input">Enter book preferences:</label>
+        <input type="text" id="search_input" name="search_input" placeholder="e.g., mystery, sci-fi, etc.">
+        <button type="submit">Search</button>
+    </form>
+
+    <iframe id="book_results" width="100%" height="600px" frameborder="0" scrolling="auto"></iframe>
+
+    <script>
+        function loadBooks() {
+            var userInput = document.getElementById("search_input").value;
+            var url = "https://ull.ent.sirsi.net/client/en_US/ull/search/results?qf=LOCATION%09Location%0921%3ALEISURE%09Leisure+Reading+Collection+1st+Floor&qu=" + encodeURIComponent(userInput);
+            document.getElementById("book_results").src = url;
+            return false; // Prevent form submission
+        }
+    </script>
+</body>
+</html>
